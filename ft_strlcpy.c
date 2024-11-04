@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afadlaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 11:36:22 by afadlaou          #+#    #+#             */
-/*   Updated: 2024/10/25 18:43:20 by afadlaou         ###   ########.fr       */
+/*   Created: 2024/10/31 21:44:00 by afadlaou          #+#    #+#             */
+/*   Updated: 2024/10/31 21:44:03 by afadlaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+size_t	ft_strlcpy(char *dst, char *src, size_t size)
 {
-	if (c >= 0 && c <= 127)
+	size_t	i;
+	size_t	src_len;
+
+	i = 0;
+	src_len = ft_strlen(src);
+	if (!src || !dst)
+		return (0);
+	if (size == 0)
+		return (src_len);
+	while (i < size - 1)
 	{
-		return (1);
+		dst[i] = src[i];
+		i++;
 	}
-	return (0);
+	dst[i] = '\0';
+	return (src_len);
 }

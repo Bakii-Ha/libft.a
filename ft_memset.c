@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afadlaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 11:36:22 by afadlaou          #+#    #+#             */
-/*   Updated: 2024/10/25 18:43:20 by afadlaou         ###   ########.fr       */
+/*   Created: 2024/10/28 10:49:42 by afadlaou          #+#    #+#             */
+/*   Updated: 2024/10/28 15:48:59 by afadlaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
 
-int	ft_isascii(int c)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	if (c >= 0 && c <= 127)
+	size_t	i;
+
+	i = 0;
+	if (!s)
+		return (0);
+	while (i < n)
 	{
-		return (1);
+		((unsigned char *)s)[i] = c;
+		i++;
 	}
-	return (0);
+	return (s);
 }

@@ -1,20 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afadlaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 11:36:22 by afadlaou          #+#    #+#             */
-/*   Updated: 2024/10/25 18:43:20 by afadlaou         ###   ########.fr       */
+/*   Created: 2024/10/31 21:12:26 by afadlaou          #+#    #+#             */
+/*   Updated: 2024/10/31 21:12:28 by afadlaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	if (c >= 0 && c <= 127)
+	int	i;
+	int	o;
+
+	i = n - 1;
+	if (!dest || !src)
+		return (0);
+	if (dest >= src)
 	{
-		return (1);
+		while (i >= 0)
+		{
+			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+			i--;
+		}
 	}
-	return (0);
+	else
+	{
+		while (o <= n)
+		{
+			((unsigned char *)dest)[o] = ((unsigned char *)src)[o];
+			o++;
+		}
+	}
+	return (dest);
 }

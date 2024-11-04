@@ -1,20 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afadlaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 11:36:22 by afadlaou          #+#    #+#             */
-/*   Updated: 2024/10/25 18:43:20 by afadlaou         ###   ########.fr       */
+/*   Created: 2024/11/03 23:39:21 by afadlaou          #+#    #+#             */
+/*   Updated: 2024/11/03 23:39:24 by afadlaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+char *ft_strchr(char *s, int c)
 {
-	if (c >= 0 && c <= 127)
-	{
-		return (1);
-	}
-	return (0);
+    int i;
+    i = 0;
+
+    if(!s)
+        return (0);
+
+    while(s[i] && s[i] != c)
+    {
+    if(s[i] == c )
+    {  
+        return ((char *)(s+i));
+    }
+        i++;
+    }
+
+    if(c == '\0')
+        return((char *)(s+i));
+
+    return (0);
 }
+
+/*int main()
+{
+    char str[50] = "Malak";
+    printf("%s\n",strchr(str,'a'));
+    return (0);
+}*/

@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afadlaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 11:36:22 by afadlaou          #+#    #+#             */
-/*   Updated: 2024/10/25 18:43:20 by afadlaou         ###   ########.fr       */
+/*   Created: 2024/10/31 11:01:35 by afadlaou          #+#    #+#             */
+/*   Updated: 2024/10/31 21:20:12 by afadlaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	if (c >= 0 && c <= 127)
+	size_t	i;
+
+	i = 0;
+	if (!dest || !src)
+		return (0);
+	while (i < n)
 	{
-		return (1);
+		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+		i++;
 	}
-	return (0);
+	return (dest);
 }
