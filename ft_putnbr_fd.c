@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afadlaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 23:33:43 by afadlaou          #+#    #+#             */
-/*   Updated: 2024/11/03 23:33:46 by afadlaou         ###   ########.fr       */
+/*   Created: 2024/11/10 02:19:34 by afadlaou          #+#    #+#             */
+/*   Updated: 2024/11/10 02:19:37 by afadlaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int c)
+
+void ft_putnbr_fd(int a, int fd)
 {
-    if(c >= 65 && c <= 90)
+    long n;
+    n = a;
+
+    if(n < 0)
     {
-        c = c - 32;
+        write(fd,"-",1);
+        n *= -1;
     }
-    return (c); 
+    if(n > 9)
+    {
+        ft_putnbr_fd((n /10),fd);
+        ft_putchar_fd((n % 10) + 48,fd);
+
+    }
+
+    else 
+        ft_putchar_fd(n + 48,fd);
 }

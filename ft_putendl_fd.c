@@ -1,20 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afadlaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 23:33:43 by afadlaou          #+#    #+#             */
-/*   Updated: 2024/11/03 23:33:46 by afadlaou         ###   ########.fr       */
+/*   Created: 2024/11/10 02:37:27 by afadlaou          #+#    #+#             */
+/*   Updated: 2024/11/10 02:37:29 by afadlaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int c)
+#include <unistd.h>
+
+void    ft_putchar_fd(char c, int fd)
 {
-    if(c >= 65 && c <= 90)
+    write(fd, &c, 1);
+}
+void ft_putstr_fd(char *s, int fd)
+{
+    int i;
+    i = 0;
+    while(s[i])
     {
-        c = c - 32;
+        ft_putchar_fd(s[i],fd);
+        i++;
     }
-    return (c); 
+}
+
+void ft_putendl_fd(char *s, int fd)
+{
+    ft_putstr_fd(s,fd);
+    write(fd,"\n",1);
+}
+int main()
+{
+    char a[]= "baki hanma";
+    ft_putendl_fd(a,1);
+    return 0;
 }

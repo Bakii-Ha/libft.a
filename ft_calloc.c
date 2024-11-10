@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afadlaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 23:33:43 by afadlaou          #+#    #+#             */
-/*   Updated: 2024/11/03 23:33:46 by afadlaou         ###   ########.fr       */
+/*   Created: 2024/11/10 02:09:28 by afadlaou          #+#    #+#             */
+/*   Updated: 2024/11/10 02:09:30 by afadlaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int c)
+
+void    *ft_calloc(size_t nmemb, size_t size)
 {
-    if(c >= 65 && c <= 90)
-    {
-        c = c - 32;
-    }
-    return (c); 
+    void    *str;
+
+    if(nmemb == 0 || size == 0)
+        return (NULL);
+
+    if (nmemb && SIZE_MAX / nmemb < size)
+        return (NULL);
+
+    str = malloc(nmemb size);
+
+    if (!str)
+        return (NULL);
+    ft_bzero(str, nmemb * size);
+    return (str);
 }

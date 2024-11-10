@@ -1,20 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afadlaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 23:33:43 by afadlaou          #+#    #+#             */
-/*   Updated: 2024/11/03 23:33:46 by afadlaou         ###   ########.fr       */
+/*   Created: 2024/11/10 02:18:11 by afadlaou          #+#    #+#             */
+/*   Updated: 2024/11/10 02:18:14 by afadlaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int ft_tolower(int c)
+#include <stdio.h>
+#include <unistd.h>
+void    ft_putchar_fd(char c, int fd)
 {
-    if(c >= 65 && c <= 90)
-    {
-        c = c - 32;
-    }
-    return (c); 
+    write(fd, &c, 1);
 }
